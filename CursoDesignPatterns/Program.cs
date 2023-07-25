@@ -1,26 +1,21 @@
 ﻿using CursoDesignPatterns;
 
-IImposto iss = new ISS();
-IImposto icms = new ICMS();
-IImposto iccc = new ICCC();
+//IImposto iss = new ISS();
+//IImposto icms = new ICMS();
+//IImposto iccc = new ICCC();
 
-Orcamento orcamento = new Orcamento(10000);
+Orcamento orcamento = new Orcamento(500);
+orcamento.AdicionarItem(new("CANETA", 500));
+orcamento.AdicionarItem(new("lapis", 500));
 
-CalculadorImposto calculador = new CalculadorImposto();
+//CalculadorImposto calculador = new CalculadorImposto();
 
 //calculador.RealizarCalculo(orcamento, iss);
 //calculador.RealizarCalculo(orcamento, iccc);
 
-IInvestimento conservador = new InvestimentoConservador();
-IInvestimento moderado = new InvestimentoModerado();
-IInvestimento arrojado = new InvestimentoArrojado();
+CalculadorDeDescontos calculadorDeDescontos = new CalculadorDeDescontos();
 
-ContaBancaria conta = new ContaBancaria(100);
-
-RealizadorDeInvestimentos realizadorDeInvestimentos = new RealizadorDeInvestimentos();
-
-realizadorDeInvestimentos.RealizarInvestimento(conta, conservador);
-realizadorDeInvestimentos.RealizarInvestimento(conta, moderado);
-realizadorDeInvestimentos.RealizarInvestimento(conta, arrojado);
+double desconto = calculadorDeDescontos.Calcula(orcamento);
+Console.WriteLine(desconto);
 
 Console.ReadKey();
