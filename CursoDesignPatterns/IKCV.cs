@@ -2,6 +2,14 @@
 {
     public class IKCV : TemplateDeImpostoCondicional
     {
+        public IKCV()
+        {
+        }
+
+        public IKCV(IImposto outroImposto) : base(outroImposto)
+        {
+        }
+
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             if (orcamento.Valor > 500 && temItemMaiorQue100ReaisNo(orcamento)) 

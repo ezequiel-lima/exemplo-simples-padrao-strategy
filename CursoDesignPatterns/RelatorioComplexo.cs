@@ -46,7 +46,7 @@ namespace CursoDesignPatterns
         {
             foreach (var conta in contas)
             {
-                return $"{conta.Email}, {conta.DataAtual}";
+                return $"{conta.Email}, {conta.DataAbertura}";
             }
 
             return "Rodapé invalido";

@@ -2,7 +2,7 @@
 {
     public class Conta
     {
-        public Conta(string titular, string nomeDoBanco, double saldo, string endereco, string telefone, string email, string agencia, string numeroDaConta)
+        public Conta(string titular, string nomeDoBanco, double saldo, string endereco, string telefone, string email, string agencia, string numeroDaConta, DateTime dataAbertura)
         {
             Titular = titular;
             NomeDoBanco = nomeDoBanco;
@@ -12,6 +12,7 @@
             Email = email;
             Agencia = agencia;
             NumeroDaConta = numeroDaConta;
+            DataAbertura = dataAbertura;
         }
 
         public string Titular { get; private set; }
@@ -22,6 +23,6 @@
         public string Email { get; private set; }
         public string Agencia { get; private set; }
         public string NumeroDaConta { get; private set; }
-        public DateTime DataAtual => DateTime.Now;
+        public DateTime DataAbertura { get; private set; }
     }
 }

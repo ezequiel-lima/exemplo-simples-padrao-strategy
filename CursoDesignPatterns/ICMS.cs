@@ -2,9 +2,17 @@
 {
     public class ICMS : IImposto
     {
-        public double Calcula(Orcamento orcamento)
+        public ICMS()
         {
-            return (orcamento.Valor * 0.05) + 50;
+        }
+
+        public ICMS(IImposto outroImposto) : base(outroImposto)
+        {
+        }
+
+        public override double Calcula(Orcamento orcamento)
+        {
+            return ((orcamento.Valor * 0.05) + 50) + CalculoDoOutroImposto(orcamento);
         }
     }
 }

@@ -2,6 +2,14 @@
 {
     public class IHIT : TemplateDeImpostoCondicional
     {
+        public IHIT()
+        {
+        }
+
+        public IHIT(IImposto outroImposto) : base(outroImposto)
+        {
+        }
+
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             if (ExisteItemComMesmoNome(orcamento))          
