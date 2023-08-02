@@ -7,17 +7,23 @@ namespace CursoDesignPatterns
         public IEstadoDeUmOrcamento EstudoAtual { get; set; } 
         public double Valor { get; set; }
         public IList<Item> Itens { get; private set; }
+        public bool DescontoJaAplicado { get; set; }
 
         public Orcamento(double valor)
         {
             Valor = valor;
             Itens = new List<Item>();
             EstudoAtual = new EmAprovacao();
+            DescontoJaAplicado = false;
         }
 
         public void AplicaDescontoExtra()
         {
-            EstudoAtual.AplicaDescontoExtra(this);         
+            if (DescontoJaAplicado == true)
+                throw new Exception("Desconto já foi Aplicado");
+
+            EstudoAtual.AplicaDescontoExtra(this);
+            DescontoJaAplicado = true;
         }
 
         public void Aprova()
